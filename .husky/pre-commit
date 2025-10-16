@@ -1,1 +1,8 @@
-pnpm test
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+pnpm run lint
+pnpm run type-check
+pnpm run format
+pnpm run test:unit
+pnpm run test:e2e

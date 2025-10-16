@@ -6,7 +6,7 @@ vi.mock('../base/base.service', () => ({
   BaseService: class {
     protected basePath = '/pokemon'
 
-    async customGet<T>(path: string, params?: Record<string, unknown>): Promise<T> {
+    async customGet<T>(): Promise<T> {
       return {} as T
     }
   },

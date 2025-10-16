@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useQuasar } from 'quasar'
 import { useQuasarNotify } from '@/composables/useQuasarNotify'
 import { useQuasarDialog } from '@/composables/useQuasarDialog'
 import { useQuasarLoading } from '@/composables/useQuasarLoading'
 
-const $q = useQuasar()
 const { showSuccess, showError, showWarning, showInfo } = useQuasarNotify()
 const { confirm, alert, prompt } = useQuasarDialog()
 const { show: showLoading, hide: hideLoading, withLoading } = useQuasarLoading()
@@ -17,7 +14,11 @@ const testNotifyInfo = () => showInfo('This is an informational message')
 
 const testConfirmDialog = async () => {
   const confirmed = await confirm('Confirm Action', 'Are you sure you want to proceed?')
-  confirmed ? showSuccess('Action confirmed!') : showInfo('Action cancelled')
+  if (confirmed) {
+    showSuccess('Action confirmed!')
+  } else {
+    showInfo('Action cancelled')
+  }
 }
 
 const testAlertDialog = async () => {
@@ -27,7 +28,11 @@ const testAlertDialog = async () => {
 
 const testPromptDialog = async () => {
   const result = await prompt('Enter Your Name', 'What is your name?', 'John Doe')
-  result ? showSuccess(`Hello, ${result}!`) : showInfo('Prompt cancelled')
+  if (result) {
+    showSuccess(`Hello, ${result}!`)
+  } else {
+    showInfo('Prompt cancelled')
+  }
 }
 
 const testLoading = () => {

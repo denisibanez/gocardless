@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { BaseService } from './base.service'
-import axiosInstance from '../axios-interceptor'
 
 vi.mock('../axios-interceptor')
 

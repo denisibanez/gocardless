@@ -1,0 +1,2 @@
+export { useQuasarDialog } from './useQuasarDialog';
+

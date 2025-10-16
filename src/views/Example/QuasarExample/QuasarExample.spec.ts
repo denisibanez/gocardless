@@ -7,8 +7,8 @@ describe('QuasarExample', () => {
   it('renders page title', () => {
     const wrapper = mount(QuasarExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Quasar')
   })
@@ -16,8 +16,8 @@ describe('QuasarExample', () => {
   it('renders successfully installed message', () => {
     const wrapper = mount(QuasarExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('successfully installed')
   })
@@ -25,10 +25,9 @@ describe('QuasarExample', () => {
   it('renders component availability message', () => {
     const wrapper = mount(QuasarExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('All components are available')
   })
 })
-

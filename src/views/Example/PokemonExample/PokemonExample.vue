@@ -1,34 +1,31 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useApiRequest } from '@/composables';
-import { pokemonService } from '@/services';
+import { ref, onMounted } from 'vue'
+import { useApiRequest } from '@/composables'
+import { pokemonService } from '@/services'
 
 // Pokemon name input
-const pokemonName = ref('ditto');
+const pokemonName = ref('ditto')
 
 // Fetch pokemon data
-const {
-  data: pokemon,
-  execute: fetchPokemon,
-} = useApiRequest(
+const { data: pokemon, execute: fetchPokemon } = useApiRequest(
   () => pokemonService.getByNameOrId(pokemonName.value.toLowerCase()),
   {
     successMessage: 'Pokemon loaded successfully!',
     errorMessage: 'Pokemon not found. Try: pikachu, charizard, mewtwo, or any pokemon name/ID',
-  }
-);
+  },
+)
 
 // Handle search
 const handleSearch = () => {
   if (pokemonName.value.trim()) {
-    fetchPokemon();
+    fetchPokemon()
   }
-};
+}
 
 // Load Ditto on mount
 onMounted(() => {
-  fetchPokemon();
-});
+  fetchPokemon()
+})
 
 // Type colors
 const getTypeColor = (type: string): string => {
@@ -51,130 +48,133 @@ const getTypeColor = (type: string): string => {
     dark: '#705848',
     steel: '#B8B8D0',
     fairy: '#EE99AC',
-  };
-  return colors[type] || '#777';
-};
+  }
+  return colors[type] || '#777'
+}
 </script>
 
 <template>
   <div class="pokemon-page">
-      <div class="container">
-        <h1>🎮 Pokémon Viewer</h1>
-        <p class="subtitle">Example using PokéAPI with our service layer</p>
+    <div class="container">
+      <h1>🎮 Pokémon Viewer</h1>
+      <p class="subtitle">Example using PokéAPI with our service layer</p>
 
-        <!-- Search -->
-        <div class="search-box">
-          <input
-            v-model="pokemonName"
-            @keyup.enter="handleSearch"
-            type="text"
-            placeholder="Enter pokemon name or ID (e.g., ditto, pikachu, 25)"
-            class="search-input"
-          />
-          <button @click="handleSearch" class="search-button">
-            Search
-          </button>
+      <!-- Search -->
+      <div class="search-box">
+        <input
+          v-model="pokemonName"
+          @keyup.enter="handleSearch"
+          type="text"
+          placeholder="Enter pokemon name or ID (e.g., ditto, pikachu, 25)"
+          class="search-input"
+        />
+        <button @click="handleSearch" class="search-button">Search</button>
+      </div>
+
+      <!-- Pokemon Data -->
+      <div v-if="pokemon" class="pokemon-card">
+        <!-- Header -->
+        <div class="pokemon-header">
+          <h2 class="pokemon-name">
+            {{ pokemon.name.toUpperCase() }}
+            <span class="pokemon-id">#{{ pokemon.id }}</span>
+          </h2>
+          <div class="types">
+            <span
+              v-for="typeInfo in pokemon.types"
+              :key="typeInfo.type.name"
+              class="type-badge"
+              :style="{ backgroundColor: getTypeColor(typeInfo.type.name) }"
+            >
+              {{ typeInfo.type.name }}
+            </span>
+          </div>
         </div>
 
-        <!-- Pokemon Data -->
-        <div v-if="pokemon" class="pokemon-card">
-          <!-- Header -->
-          <div class="pokemon-header">
-            <h2 class="pokemon-name">
-              {{ pokemon.name.toUpperCase() }}
-              <span class="pokemon-id">#{{ pokemon.id }}</span>
-            </h2>
-            <div class="types">
-              <span
-                v-for="typeInfo in pokemon.types"
-                :key="typeInfo.type.name"
-                class="type-badge"
-                :style="{ backgroundColor: getTypeColor(typeInfo.type.name) }"
-              >
-                {{ typeInfo.type.name }}
-              </span>
+        <!-- Sprite -->
+        <div class="pokemon-sprite">
+          <img
+            v-if="pokemon.sprites.other?.['official-artwork']?.front_default"
+            :src="pokemon.sprites.other['official-artwork'].front_default"
+            :alt="pokemon.name"
+            class="sprite-image"
+          />
+          <img
+            v-else-if="pokemon.sprites.front_default"
+            :src="pokemon.sprites.front_default"
+            :alt="pokemon.name"
+            class="sprite-image"
+          />
+        </div>
+
+        <!-- Basic Info -->
+        <div class="pokemon-info">
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="info-label">Height</span>
+              <span class="info-value">{{ (pokemon.height / 10).toFixed(1) }}m</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Weight</span>
+              <span class="info-value">{{ (pokemon.weight / 10).toFixed(1) }}kg</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Base Experience</span>
+              <span class="info-value">{{ pokemon.base_experience }}</span>
             </div>
           </div>
+        </div>
 
-          <!-- Sprite -->
-          <div class="pokemon-sprite">
-            <img
-              v-if="pokemon.sprites.other?.['official-artwork']?.front_default"
-              :src="pokemon.sprites.other['official-artwork'].front_default"
-              :alt="pokemon.name"
-              class="sprite-image"
-            />
-            <img
-              v-else-if="pokemon.sprites.front_default"
-              :src="pokemon.sprites.front_default"
-              :alt="pokemon.name"
-              class="sprite-image"
-            />
+        <!-- Abilities -->
+        <div class="pokemon-section">
+          <h3>Abilities</h3>
+          <div class="abilities-list">
+            <span
+              v-for="abilityInfo in pokemon.abilities"
+              :key="abilityInfo.ability.name"
+              class="ability-badge"
+            >
+              {{ abilityInfo.ability.name.replace('-', ' ') }}
+              <span v-if="abilityInfo.is_hidden" class="hidden-tag">(Hidden)</span>
+            </span>
           </div>
+        </div>
 
-          <!-- Basic Info -->
-          <div class="pokemon-info">
-            <div class="info-grid">
-              <div class="info-item">
-                <span class="info-label">Height</span>
-                <span class="info-value">{{ (pokemon.height / 10).toFixed(1) }}m</span>
-              </div>
-              <div class="info-item">
-                <span class="info-label">Weight</span>
-                <span class="info-value">{{ (pokemon.weight / 10).toFixed(1) }}kg</span>
-              </div>
-              <div class="info-item">
-                <span class="info-label">Base Experience</span>
-                <span class="info-value">{{ pokemon.base_experience }}</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Abilities -->
-          <div class="pokemon-section">
-            <h3>Abilities</h3>
-            <div class="abilities-list">
-              <span
-                v-for="abilityInfo in pokemon.abilities"
-                :key="abilityInfo.ability.name"
-                class="ability-badge"
-              >
-                {{ abilityInfo.ability.name.replace('-', ' ') }}
-                <span v-if="abilityInfo.is_hidden" class="hidden-tag">(Hidden)</span>
-              </span>
-            </div>
-          </div>
-
-          <!-- Stats -->
-          <div class="pokemon-section">
-            <h3>Base Stats</h3>
-            <div class="stats-list">
-              <div v-for="statInfo in pokemon.stats" :key="statInfo.stat.name" class="stat-row">
-                <span class="stat-name">{{ statInfo.stat.name.replace('-', ' ') }}</span>
-                <div class="stat-bar-container">
-                  <div
-                    class="stat-bar"
-                    :style="{
-                      width: `${(statInfo.base_stat / 255) * 100}%`,
-                      backgroundColor: statInfo.base_stat > 100 ? '#4CAF50' : statInfo.base_stat > 50 ? '#FFC107' : '#FF5722'
-                    }"
-                  >
-                    <span class="stat-value">{{ statInfo.base_stat }}</span>
-                  </div>
+        <!-- Stats -->
+        <div class="pokemon-section">
+          <h3>Base Stats</h3>
+          <div class="stats-list">
+            <div v-for="statInfo in pokemon.stats" :key="statInfo.stat.name" class="stat-row">
+              <span class="stat-name">{{ statInfo.stat.name.replace('-', ' ') }}</span>
+              <div class="stat-bar-container">
+                <div
+                  class="stat-bar"
+                  :style="{
+                    width: `${(statInfo.base_stat / 255) * 100}%`,
+                    backgroundColor:
+                      statInfo.base_stat > 100
+                        ? '#4CAF50'
+                        : statInfo.base_stat > 50
+                          ? '#FFC107'
+                          : '#FF5722',
+                  }"
+                >
+                  <span class="stat-value">{{ statInfo.base_stat }}</span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Additional Info -->
-          <div class="pokemon-footer">
-            <p>
-              <strong>🎮 Try other Pokémon:</strong> pikachu, charizard, mewtwo, gyarados, dragonite
-            </p>
-          </div>
+        <!-- Additional Info -->
+        <div class="pokemon-footer">
+          <p>
+            <strong>🎮 Try other Pokémon:</strong> pikachu, charizard, mewtwo, gyarados, dragonite
+          </p>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
@@ -226,7 +226,7 @@ h1 {
   font-size: 16px;
   font-weight: bold;
   color: white;
-  background: #4CAF50;
+  background: #4caf50;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -455,4 +455,3 @@ h1 {
   }
 }
 </style>
-

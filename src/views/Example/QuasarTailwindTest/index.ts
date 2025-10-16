@@ -1,2 +1,1 @@
-export { default } from './QuasarTailwindTest.vue';
-
+export { default } from './QuasarTailwindTest.vue'

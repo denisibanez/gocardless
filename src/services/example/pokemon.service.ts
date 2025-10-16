@@ -1,5 +1,5 @@
-import { BaseService } from '../base';
-import type { Pokemon, PokemonListResponse, SimplePokemon, NamedAPIResource } from '@/interfaces';
+import { BaseService } from '../base'
+import type { Pokemon, PokemonListResponse, SimplePokemon, NamedAPIResource } from '@/interfaces'
 
 /**
  * ============================================================================
@@ -25,7 +25,7 @@ class PokemonService extends BaseService<Pokemon> {
    * Base path for Pokemon endpoint
    * Full URL: https://pokeapi.co/api/v2/pokemon
    */
-  protected basePath = '/pokemon';
+  protected basePath = '/pokemon'
 
   /**
    * ========================================================================
@@ -44,7 +44,7 @@ class PokemonService extends BaseService<Pokemon> {
    * const pikachu = await pokemonService.getByNameOrId(25);
    */
   async getByNameOrId(nameOrId: string | number): Promise<Pokemon> {
-    return this.customGet<Pokemon>(`/${nameOrId}`);
+    return this.customGet<Pokemon>(`/${nameOrId}`)
   }
 
   /**
@@ -55,7 +55,7 @@ class PokemonService extends BaseService<Pokemon> {
    * @returns Simplified Pokemon data
    */
   async getSimplified(nameOrId: string | number): Promise<SimplePokemon> {
-    const pokemon = await this.getByNameOrId(nameOrId);
+    const pokemon = await this.getByNameOrId(nameOrId)
 
     return {
       id: pokemon.id,
@@ -66,15 +66,15 @@ class PokemonService extends BaseService<Pokemon> {
         front_default: pokemon.sprites.front_default,
         official_artwork: pokemon.sprites.other?.['official-artwork']?.front_default,
       },
-      types: pokemon.types.map(t => ({
+      types: pokemon.types.map((t) => ({
         name: t.type.name,
         slot: t.slot,
       })),
-      stats: pokemon.stats.map(s => ({
+      stats: pokemon.stats.map((s) => ({
         name: s.stat.name,
         base_stat: s.base_stat,
       })),
-    };
+    }
   }
 
   /**
@@ -89,7 +89,7 @@ class PokemonService extends BaseService<Pokemon> {
    * const secondPage = await pokemonService.getList(20, 20);
    */
   async getList(limit: number = 20, offset: number = 0): Promise<PokemonListResponse> {
-    return this.customGet<PokemonListResponse>('', { limit, offset });
+    return this.customGet<PokemonListResponse>('', { limit, offset })
   }
 
   /**
@@ -100,10 +100,8 @@ class PokemonService extends BaseService<Pokemon> {
    * @returns Array of matching pokemon names
    */
   async search(query: string): Promise<NamedAPIResource[]> {
-    const list = await this.getList(1000); // Get a large list
-    return list.results.filter(p =>
-      p.name.toLowerCase().includes(query.toLowerCase())
-    );
+    const list = await this.getList(1000) // Get a large list
+    return list.results.filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
   }
 
   /**
@@ -117,17 +115,17 @@ class PokemonService extends BaseService<Pokemon> {
    */
   async getByType(type: string): Promise<NamedAPIResource[]> {
     const response = await this.customGet<{
-      pokemon: Array<{ pokemon: NamedAPIResource }>;
-    }>(`https://pokeapi.co/api/v2/type/${type}`);
+      pokemon: Array<{ pokemon: NamedAPIResource }>
+    }>(`https://pokeapi.co/api/v2/type/${type}`)
 
-    return response.pokemon.map(p => p.pokemon);
+    return response.pokemon.map((p) => p.pokemon)
   }
 }
 
 /**
  * STEP 3: Export singleton instance
  */
-export default new PokemonService();
+export default new PokemonService()
 
 /**
  * ============================================================================
@@ -727,4 +725,3 @@ export default new PokemonService();
  *
  * ============================================================================
  */
-

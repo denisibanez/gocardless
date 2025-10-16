@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from '@/components/HelloWorld'
 </script>
 
 <template>
@@ -11,15 +11,15 @@ import HelloWorld from '@/components/HelloWorld';
       <div class="wrapper">
         <HelloWorld msg="You did it!" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/pokemon">Pokemon</RouterLink>
-        <RouterLink to="/pinia">Pinia</RouterLink>
-        <RouterLink to="/tailwind-test">Tailwind</RouterLink>
-        <RouterLink to="/quasar">Quasar</RouterLink>
-        <RouterLink to="/quasar-tailwind">Q+TW</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/pokemon">Pokemon</RouterLink>
+          <RouterLink to="/pinia">Pinia</RouterLink>
+          <RouterLink to="/tailwind-test">Tailwind</RouterLink>
+          <RouterLink to="/quasar">Quasar</RouterLink>
+          <RouterLink to="/quasar-tailwind">Q+TW</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+        </nav>
       </div>
     </header>
 
@@ -150,4 +150,3 @@ nav {
   }
 }
 </style>
-

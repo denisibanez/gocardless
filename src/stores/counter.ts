@@ -22,6 +22,6 @@ export const useCounterStore = defineStore('counter', () => {
     doubleCount,
     increment,
     decrement,
-    reset
+    reset,
   }
 })

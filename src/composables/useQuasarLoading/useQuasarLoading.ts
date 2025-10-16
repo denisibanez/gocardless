@@ -1,4 +1,4 @@
-import { useQuasar } from 'quasar';
+import { useQuasar } from 'quasar'
 
 /**
  * ============================================================================
@@ -10,7 +10,7 @@ import { useQuasar } from 'quasar';
  */
 
 export function useQuasarLoading() {
-  const $q = useQuasar();
+  const $q = useQuasar()
 
   /**
    * Show loading overlay
@@ -31,15 +31,15 @@ export function useQuasarLoading() {
       messageColor: 'white',
       backgroundColor: 'dark',
       ...options,
-    });
-  };
+    })
+  }
 
   /**
    * Hide loading overlay
    */
   const hide = () => {
-    $q.loading.hide();
-  };
+    $q.loading.hide()
+  }
 
   /**
    * Show loading for a promise
@@ -56,31 +56,27 @@ export function useQuasarLoading() {
    *   'Loading data...'
    * );
    */
-  const withLoading = async <T>(
-    promise: Promise<T>,
-    message = 'Loading...'
-  ): Promise<T> => {
+  const withLoading = async <T>(promise: Promise<T>, message = 'Loading...'): Promise<T> => {
     try {
-      show(message);
-      const result = await promise;
-      return result;
+      show(message)
+      const result = await promise
+      return result
     } finally {
-      hide();
+      hide()
     }
-  };
+  }
 
   /**
    * Check if loading is active
    */
   const isActive = () => {
-    return $q.loading.isActive;
-  };
+    return $q.loading.isActive
+  }
 
   return {
     show,
     hide,
     withLoading,
     isActive,
-  };
+  }
 }
-

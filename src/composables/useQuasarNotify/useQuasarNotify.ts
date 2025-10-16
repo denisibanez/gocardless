@@ -1,4 +1,4 @@
-import { useQuasar } from 'quasar';
+import { useQuasar } from 'quasar'
 
 /**
  * ============================================================================
@@ -10,7 +10,7 @@ import { useQuasar } from 'quasar';
  */
 
 export function useQuasarNotify() {
-  const $q = useQuasar();
+  const $q = useQuasar()
 
   /**
    * Show success notification
@@ -29,8 +29,8 @@ export function useQuasarNotify() {
       icon: 'check_circle',
       position: 'top-right',
       ...options,
-    });
-  };
+    })
+  }
 
   /**
    * Show error notification
@@ -45,8 +45,8 @@ export function useQuasarNotify() {
       icon: 'error',
       position: 'top-right',
       ...options,
-    });
-  };
+    })
+  }
 
   /**
    * Show warning notification
@@ -61,8 +61,8 @@ export function useQuasarNotify() {
       icon: 'warning',
       position: 'top-right',
       ...options,
-    });
-  };
+    })
+  }
 
   /**
    * Show info notification
@@ -77,8 +77,8 @@ export function useQuasarNotify() {
       icon: 'info',
       position: 'top-right',
       ...options,
-    });
-  };
+    })
+  }
 
   /**
    * Show custom notification
@@ -86,8 +86,8 @@ export function useQuasarNotify() {
    * @param options - Full notify options
    */
   const notify = (options: Record<string, unknown>) => {
-    $q.notify(options);
-  };
+    $q.notify(options)
+  }
 
   return {
     showSuccess,
@@ -95,6 +95,5 @@ export function useQuasarNotify() {
     showWarning,
     showInfo,
     notify,
-  };
+  }
 }
-

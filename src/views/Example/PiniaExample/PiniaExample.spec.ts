@@ -12,8 +12,8 @@ describe('PiniaExample', () => {
   it('renders page title', () => {
     const wrapper = mount(PiniaExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Pinia Store Example')
   })
@@ -21,8 +21,8 @@ describe('PiniaExample', () => {
   it('displays initial count of 0', () => {
     const wrapper = mount(PiniaExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('0')
   })
@@ -30,8 +30,8 @@ describe('PiniaExample', () => {
   it('displays correct double count', () => {
     const wrapper = mount(PiniaExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Double Value:')
   })

@@ -1,4 +1,4 @@
-import type { Ref } from 'vue';
+import type { Ref } from 'vue'
 
 /**
  * ============================================================================
@@ -14,15 +14,15 @@ import type { Ref } from 'vue';
  */
 export interface UseApiRequestOptions {
   /** Show loading state (default: true) */
-  showLoading?: boolean;
+  showLoading?: boolean
   /** Success message to display */
-  successMessage?: string;
+  successMessage?: string
   /** Error message to display */
-  errorMessage?: string;
+  errorMessage?: string
   /** Callback on success */
-  onSuccess?: (data: unknown) => void;
+  onSuccess?: (data: unknown) => void
   /** Callback on error */
-  onError?: (error: Error) => void;
+  onError?: (error: Error) => void
 }
 
 /**
@@ -30,15 +30,15 @@ export interface UseApiRequestOptions {
  */
 export interface ApiRequestState<T> {
   /** Response data */
-  data: Ref<T | null>;
+  data: Ref<T | null>
   /** Error object if request failed */
-  error: Ref<Error | null>;
+  error: Ref<Error | null>
   /** Loading state */
-  loading: Ref<boolean>;
+  loading: Ref<boolean>
   /** Execute the request */
-  execute: () => Promise<void>;
+  execute: () => Promise<void>
   /** Reset the state */
-  reset: () => void;
+  reset: () => void
 }
 
 /**
@@ -47,9 +47,9 @@ export interface ApiRequestState<T> {
  */
 export interface NamedAPIResource {
   /** Resource name */
-  name: string;
+  name: string
   /** Resource URL */
-  url: string;
+  url: string
 }
 
 /**
@@ -57,16 +57,15 @@ export interface NamedAPIResource {
  */
 export interface PaginatedResponse<T> {
   /** Array of items */
-  data: T[];
+  data: T[]
   /** Total count of items */
-  total: number;
+  total: number
   /** Current page */
-  page: number;
+  page: number
   /** Items per page */
-  limit: number;
+  limit: number
   /** Next page URL */
-  next?: string | null;
+  next?: string | null
   /** Previous page URL */
-  previous?: string | null;
+  previous?: string | null
 }
-

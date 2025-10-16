@@ -1,2 +1,1 @@
-export { useQuasarLoading } from './useQuasarLoading';
-
+export { useQuasarLoading } from './useQuasarLoading'

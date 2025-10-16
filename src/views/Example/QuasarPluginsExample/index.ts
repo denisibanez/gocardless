@@ -1,2 +1,1 @@
-export { default } from './QuasarPluginsExample.vue';
-
+export { default } from './QuasarPluginsExample.vue'

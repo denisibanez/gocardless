@@ -1,60 +1,60 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useQuasar } from 'quasar';
-import { useQuasarNotify } from '@/composables/useQuasarNotify';
-import { useQuasarDialog } from '@/composables/useQuasarDialog';
-import { useQuasarLoading } from '@/composables/useQuasarLoading';
+import { ref } from 'vue'
+import { useQuasar } from 'quasar'
+import { useQuasarNotify } from '@/composables/useQuasarNotify'
+import { useQuasarDialog } from '@/composables/useQuasarDialog'
+import { useQuasarLoading } from '@/composables/useQuasarLoading'
 
-const $q = useQuasar();
-const { showSuccess, showError, showWarning, showInfo } = useQuasarNotify();
-const { confirm, alert, prompt } = useQuasarDialog();
-const { show: showLoading, hide: hideLoading, withLoading } = useQuasarLoading();
+const $q = useQuasar()
+const { showSuccess, showError, showWarning, showInfo } = useQuasarNotify()
+const { confirm, alert, prompt } = useQuasarDialog()
+const { show: showLoading, hide: hideLoading, withLoading } = useQuasarLoading()
 
-const testNotifySuccess = () => showSuccess('Operation completed successfully!');
-const testNotifyError = () => showError('Something went wrong!');
-const testNotifyWarning = () => showWarning('Please check your input');
-const testNotifyInfo = () => showInfo('This is an informational message');
+const testNotifySuccess = () => showSuccess('Operation completed successfully!')
+const testNotifyError = () => showError('Something went wrong!')
+const testNotifyWarning = () => showWarning('Please check your input')
+const testNotifyInfo = () => showInfo('This is an informational message')
 
 const testConfirmDialog = async () => {
-  const confirmed = await confirm('Confirm Action', 'Are you sure you want to proceed?');
-  confirmed ? showSuccess('Action confirmed!') : showInfo('Action cancelled');
-};
+  const confirmed = await confirm('Confirm Action', 'Are you sure you want to proceed?')
+  confirmed ? showSuccess('Action confirmed!') : showInfo('Action cancelled')
+}
 
 const testAlertDialog = async () => {
-  await alert('Alert Title', 'This is an important message!');
-  showInfo('Alert dismissed');
-};
+  await alert('Alert Title', 'This is an important message!')
+  showInfo('Alert dismissed')
+}
 
 const testPromptDialog = async () => {
-  const result = await prompt('Enter Your Name', 'What is your name?', 'John Doe');
-  result ? showSuccess(`Hello, ${result}!`) : showInfo('Prompt cancelled');
-};
+  const result = await prompt('Enter Your Name', 'What is your name?', 'John Doe')
+  result ? showSuccess(`Hello, ${result}!`) : showInfo('Prompt cancelled')
+}
 
 const testLoading = () => {
-  showLoading('Loading data...');
+  showLoading('Loading data...')
   setTimeout(() => {
-    hideLoading();
-    showSuccess('Data loaded!');
-  }, 2000);
-};
+    hideLoading()
+    showSuccess('Data loaded!')
+  }, 2000)
+}
 
 const testLoadingWithPromise = async () => {
-  const fakeApiCall = () => new Promise(resolve => setTimeout(resolve, 2000));
-  await withLoading(fakeApiCall(), 'Fetching data from API...');
-  showSuccess('Data fetched successfully!');
-};
+  const fakeApiCall = () => new Promise((resolve) => setTimeout(resolve, 2000))
+  await withLoading(fakeApiCall(), 'Fetching data from API...')
+  showSuccess('Data fetched successfully!')
+}
 
 const deleteItemExample = async () => {
-  const confirmed = await confirm('Delete Item', 'Are you sure? This cannot be undone.');
+  const confirmed = await confirm('Delete Item', 'Are you sure? This cannot be undone.')
   if (!confirmed) {
-    showInfo('Deletion cancelled');
-    return;
+    showInfo('Deletion cancelled')
+    return
   }
-  showLoading('Deleting item...');
-  await new Promise(resolve => setTimeout(resolve, 1500));
-  hideLoading();
-  showSuccess('Item deleted successfully!');
-};
+  showLoading('Deleting item...')
+  await new Promise((resolve) => setTimeout(resolve, 1500))
+  hideLoading()
+  showSuccess('Item deleted successfully!')
+}
 </script>
 
 <template>
@@ -111,7 +111,12 @@ const deleteItemExample = async () => {
           <div class="text-h6">🚀 Real World Example</div>
         </q-card-section>
         <q-card-section class="bg-white text-dark">
-          <q-btn color="negative" label="Delete Item (Full Flow)" icon="delete" @click="deleteItemExample" />
+          <q-btn
+            color="negative"
+            label="Delete Item (Full Flow)"
+            icon="delete"
+            @click="deleteItemExample"
+          />
         </q-card-section>
       </q-card>
     </div>

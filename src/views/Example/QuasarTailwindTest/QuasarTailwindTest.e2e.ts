@@ -16,4 +16,3 @@ test.describe('QuasarTailwindTest', () => {
     await expect(page.getByText(/Pure Tailwind/i)).toBeVisible()
   })
 })
-

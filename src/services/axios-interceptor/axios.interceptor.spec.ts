@@ -4,8 +4,8 @@ import axios from 'axios'
 // Mock Quasar's Notify
 vi.mock('quasar', () => ({
   Notify: {
-    create: vi.fn()
-  }
+    create: vi.fn(),
+  },
 }))
 
 describe('axios.interceptor', () => {
@@ -29,4 +29,3 @@ describe('axios.interceptor', () => {
     expect(typeof axios.delete).toBe('function')
   })
 })
-

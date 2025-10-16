@@ -6,11 +6,11 @@
  */
 
 // Core
-export { default as axiosInstance } from './axios-interceptor';
-export { BaseService } from './base';
+export { default as axiosInstance } from './axios-interceptor'
+export { BaseService } from './base'
 
 // Services
-export { default as pokemonService } from './example/pokemon.service';
+export { default as pokemonService } from './example/pokemon.service'
 
 /**
  * HOW TO USE:
@@ -24,4 +24,3 @@ export { default as pokemonService } from './example/pokemon.service';
  *
  * Note: Types are now centralized in @/interfaces
  */
-

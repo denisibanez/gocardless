@@ -9,16 +9,16 @@ describe('App', () => {
     routes: [
       {
         path: '/',
-        component: { template: '<div>Home</div>' }
-      }
-    ]
+        component: { template: '<div>Home</div>' },
+      },
+    ],
   })
 
   it('renders without crashing', () => {
     const wrapper = mount(App, {
       global: {
-        plugins: [router]
-      }
+        plugins: [router],
+      },
     })
     expect(wrapper.exists()).toBe(true)
   })
@@ -28,11 +28,10 @@ describe('App', () => {
       global: {
         plugins: [router],
         stubs: {
-          RouterView: true
-        }
-      }
+          RouterView: true,
+        },
+      },
     })
     expect(wrapper.findComponent({ name: 'RouterView' }).exists()).toBe(true)
   })
 })
-

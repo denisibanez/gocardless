@@ -15,4 +15,3 @@ describe('IconCommunity', () => {
     expect(svg.attributes('height')).toBe('20')
   })
 })
-

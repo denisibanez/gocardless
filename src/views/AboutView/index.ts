@@ -1,2 +1,1 @@
-export { default } from './AboutView.vue';
-
+export { default } from './AboutView.vue'

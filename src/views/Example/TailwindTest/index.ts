@@ -1,2 +1,1 @@
-export { default } from './TailwindTest.vue';
-
+export { default } from './TailwindTest.vue'

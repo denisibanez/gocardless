@@ -16,4 +16,3 @@ test.describe('QuasarExample', () => {
     await expect(page.getByText(/successfully installed/i)).toBeVisible()
   })
 })
-

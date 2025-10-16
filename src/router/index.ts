@@ -50,7 +50,7 @@ const router = createRouter({
       path: '/pinia',
       name: 'pinia',
       component: () => import('@/views/Example/PiniaExample'),
-    }
+    },
   ],
 })
 

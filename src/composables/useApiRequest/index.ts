@@ -1,2 +1,1 @@
-export { useApiRequest } from './useApiRequest';
-
+export { useApiRequest } from './useApiRequest'

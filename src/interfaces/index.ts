@@ -16,7 +16,7 @@ export type {
   ApiRequestState,
   NamedAPIResource,
   PaginatedResponse,
-} from './api.interface';
+} from './api.interface'
 
 // Pokemon Interfaces
 export type {
@@ -33,5 +33,4 @@ export type {
   Stat,
   Type,
   VersionDetail,
-} from './pokemon.interface';
-
+} from './pokemon.interface'

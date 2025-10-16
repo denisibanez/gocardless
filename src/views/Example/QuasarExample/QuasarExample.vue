@@ -1,35 +1,35 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const tab = ref('components');
-const slide = ref(1);
-const splitterModel = ref(50);
+const tab = ref('components')
+const slide = ref(1)
+const splitterModel = ref(50)
 
 // Form data
-const name = ref('');
-const email = ref('');
-const message = ref('');
-const accept = ref(false);
-const selected = ref('option1');
+const name = ref('')
+const email = ref('')
+const message = ref('')
+const accept = ref(false)
+const selected = ref('option1')
 
 // Table data
 const columns = [
   { name: 'name', label: 'Name', field: 'name', align: 'left' as const },
   { name: 'description', label: 'Description', field: 'description', align: 'left' as const },
   { name: 'actions', label: 'Actions', field: 'actions', align: 'center' as const },
-];
+]
 
 const rows = [
   { name: 'Quasar', description: 'Build high-performance VueJS user interfaces' },
   { name: 'Vue 3', description: 'Progressive JavaScript Framework' },
   { name: 'Vite', description: 'Next Generation Frontend Tooling' },
-];
+]
 
 // Notification
 const showNotification = () => {
   // Using Quasar's Notify plugin would go here
-  console.log('Notification would show here');
-};
+  console.log('Notification would show here')
+}
 </script>
 
 <template>
@@ -77,12 +77,8 @@ const showNotification = () => {
                 <q-badge color="primary" label="Badge" />
                 <q-badge color="secondary" label="10" />
                 <q-badge color="positive" label="New" />
-                <q-chip color="primary" text-color="white" icon="check">
-                  Chip with Icon
-                </q-chip>
-                <q-chip removable color="teal" text-color="white">
-                  Removable Chip
-                </q-chip>
+                <q-chip color="primary" text-color="white" icon="check"> Chip with Icon </q-chip>
+                <q-chip removable color="teal" text-color="white"> Removable Chip </q-chip>
               </div>
 
               <q-separator class="q-my-md" />
@@ -132,13 +128,7 @@ const showNotification = () => {
 
               <q-input v-model="name" filled label="Name" hint="Enter your name" />
 
-              <q-input
-                v-model="email"
-                filled
-                type="email"
-                label="Email"
-                hint="Enter your email"
-              >
+              <q-input v-model="email" filled type="email" label="Email" hint="Enter your email">
                 <template v-slot:prepend>
                   <q-icon name="email" />
                 </template>
@@ -180,14 +170,7 @@ const showNotification = () => {
 
           <!-- Tables Panel -->
           <q-tab-panel name="tables">
-            <q-table
-              :rows="rows"
-              :columns="columns"
-              row-key="name"
-              flat
-              bordered
-              class="q-mb-md"
-            >
+            <q-table :rows="rows" :columns="columns" row-key="name" flat bordered class="q-mb-md">
               <template v-slot:body-cell-actions="props">
                 <q-td :props="props">
                   <q-btn flat round dense color="primary" icon="edit" size="sm" />
@@ -338,4 +321,3 @@ const showNotification = () => {
   margin: 0 auto;
 }
 </style>
-

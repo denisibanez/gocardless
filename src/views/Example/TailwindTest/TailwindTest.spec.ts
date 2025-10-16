@@ -18,4 +18,3 @@ describe('TailwindTest', () => {
     expect(wrapper.text()).toContain('Button Examples')
   })
 })
-

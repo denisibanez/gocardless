@@ -1,4 +1,4 @@
 /* Tailwind CSS */
-@import "tailwindcss/theme";
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/theme';
+@import 'tailwindcss/preflight';
+@import 'tailwindcss/utilities';

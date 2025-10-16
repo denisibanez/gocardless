@@ -1,4 +1,4 @@
-import { useQuasar } from 'quasar';
+import { useQuasar } from 'quasar'
 
 /**
  * ============================================================================
@@ -10,7 +10,7 @@ import { useQuasar } from 'quasar';
  */
 
 export function useQuasarDialog() {
-  const $q = useQuasar();
+  const $q = useQuasar()
 
   /**
    * Show confirmation dialog
@@ -26,11 +26,7 @@ export function useQuasarDialog() {
    *   // Delete the item
    * }
    */
-  const confirm = (
-    title: string,
-    message: string,
-    options = {}
-  ): Promise<boolean> => {
+  const confirm = (title: string, message: string, options = {}): Promise<boolean> => {
     return new Promise((resolve) => {
       $q.dialog({
         title,
@@ -40,9 +36,9 @@ export function useQuasarDialog() {
         ...options,
       })
         .onOk(() => resolve(true))
-        .onCancel(() => resolve(false));
-    });
-  };
+        .onCancel(() => resolve(false))
+    })
+  }
 
   /**
    * Show alert dialog
@@ -61,9 +57,9 @@ export function useQuasarDialog() {
         message,
         persistent: false,
         ...options,
-      }).onOk(() => resolve());
-    });
-  };
+      }).onOk(() => resolve())
+    })
+  }
 
   /**
    * Show prompt dialog (input)
@@ -84,7 +80,7 @@ export function useQuasarDialog() {
     title: string,
     message: string,
     defaultValue = '',
-    options = {}
+    options = {},
   ): Promise<string | null> => {
     return new Promise((resolve) => {
       $q.dialog({
@@ -99,9 +95,9 @@ export function useQuasarDialog() {
         ...options,
       })
         .onOk((value: string) => resolve(value))
-        .onCancel(() => resolve(null));
-    });
-  };
+        .onCancel(() => resolve(null))
+    })
+  }
 
   /**
    * Show custom dialog
@@ -112,15 +108,14 @@ export function useQuasarDialog() {
     return new Promise((resolve, reject) => {
       $q.dialog(options)
         .onOk((data: unknown) => resolve(data))
-        .onCancel(() => reject(new Error('Dialog cancelled')));
-    });
-  };
+        .onCancel(() => reject(new Error('Dialog cancelled')))
+    })
+  }
 
   return {
     confirm,
     alert,
     prompt,
     showDialog,
-  };
+  }
 }
-

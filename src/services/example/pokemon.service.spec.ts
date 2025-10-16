@@ -9,7 +9,7 @@ vi.mock('../base/base.service', () => ({
     async customGet<T>(path: string, params?: Record<string, unknown>): Promise<T> {
       return {} as T
     }
-  }
+  },
 }))
 
 describe('pokemonService', () => {
@@ -52,4 +52,3 @@ describe('pokemonService', () => {
     })
   })
 })
-

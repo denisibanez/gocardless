@@ -9,16 +9,16 @@ vi.mock('@/services/pokemon', () => ({
     getPokemon: vi.fn(),
     updatePokemon: vi.fn(),
     deletePokemon: vi.fn(),
-    patchPokemon: vi.fn()
-  }
+    patchPokemon: vi.fn(),
+  },
 }))
 
 describe('PokemonExample', () => {
   it('renders page title', () => {
     const wrapper = mount(PokemonExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Pokémon Viewer')
   })
@@ -26,10 +26,9 @@ describe('PokemonExample', () => {
   it('renders search button', () => {
     const wrapper = mount(PokemonExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Search')
   })
 })
-

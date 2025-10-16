@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const name = ref('');
-const dialog = ref(false);
+const name = ref('')
+const dialog = ref(false)
 </script>
 
 <template>
   <div class="min-h-screen bg-gray-100 p-8">
     <div class="max-w-6xl mx-auto">
       <!-- Header with Tailwind -->
-      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg shadow-xl mb-8">
+      <div
+        class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg shadow-xl mb-8"
+      >
         <h1 class="text-4xl font-bold mb-2">⚖️ Quasar + Tailwind Compatibility Test</h1>
         <p class="text-lg opacity-90">Testing if both frameworks work together without conflicts</p>
       </div>
 
       <!-- Grid Layout with Tailwind -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-
         <!-- Left Column - Pure Tailwind -->
         <div class="space-y-4">
           <h2 class="text-2xl font-bold text-gray-800 mb-4">🎨 Pure Tailwind</h2>
@@ -33,10 +34,14 @@ const dialog = ref(false);
               <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Tailwind Button
               </button>
-              <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+              <button
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              >
                 Success
               </button>
-              <button class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-2 px-4 rounded transition-colors">
+              <button
+                class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-2 px-4 rounded transition-colors"
+              >
                 Outline
               </button>
             </div>
@@ -51,7 +56,9 @@ const dialog = ref(false);
                 placeholder="Tailwind Input"
                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
-              <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+              <select
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              >
                 <option>Tailwind Select</option>
                 <option>Option 2</option>
               </select>
@@ -236,8 +243,8 @@ const dialog = ref(false);
               <q-item-section>
                 <q-item-label class="font-bold text-lg">Best Practice</q-item-label>
                 <q-item-label caption class="text-base">
-                  Use Quasar for complex components (dialogs, tables, forms with validation).
-                  Use Tailwind for layout and utility styling (spacing, colors, responsive design).
+                  Use Quasar for complex components (dialogs, tables, forms with validation). Use
+                  Tailwind for layout and utility styling (spacing, colors, responsive design).
                 </q-item-label>
               </q-item-section>
             </q-item>
@@ -251,15 +258,22 @@ const dialog = ref(false);
         <ul class="space-y-2 text-gray-700">
           <li class="flex items-start gap-2">
             <span class="text-blue-500 font-bold">•</span>
-            <span><strong>Layout & Spacing:</strong> Use Tailwind (flex, grid, p-*, m-*, gap-*)</span>
+            <span
+              ><strong>Layout & Spacing:</strong> Use Tailwind (flex, grid, p-*, m-*, gap-*)</span
+            >
           </li>
           <li class="flex items-start gap-2">
             <span class="text-blue-500 font-bold">•</span>
-            <span><strong>Complex Components:</strong> Use Quasar (q-table, q-dialog, q-select)</span>
+            <span
+              ><strong>Complex Components:</strong> Use Quasar (q-table, q-dialog, q-select)</span
+            >
           </li>
           <li class="flex items-start gap-2">
             <span class="text-blue-500 font-bold">•</span>
-            <span><strong>Simple Buttons:</strong> Either works (Tailwind for custom, Quasar for consistency)</span>
+            <span
+              ><strong>Simple Buttons:</strong> Either works (Tailwind for custom, Quasar for
+              consistency)</span
+            >
           </li>
           <li class="flex items-start gap-2">
             <span class="text-blue-500 font-bold">•</span>
@@ -267,7 +281,9 @@ const dialog = ref(false);
           </li>
           <li class="flex items-start gap-2">
             <span class="text-blue-500 font-bold">•</span>
-            <span><strong>Responsive Design:</strong> Use Tailwind (sm:, md:, lg: breakpoints)</span>
+            <span
+              ><strong>Responsive Design:</strong> Use Tailwind (sm:, md:, lg: breakpoints)</span
+            >
           </li>
         </ul>
       </div>
@@ -277,7 +293,9 @@ const dialog = ref(false);
         <q-card class="shadow-xl">
           <q-card-section class="bg-gradient-to-r from-purple-600 to-pink-600 text-white">
             <div class="text-h5 font-bold">Interactive Compatibility Test</div>
-            <div class="text-subtitle2 mt-2 opacity-90">Click the button to test dialog + Tailwind</div>
+            <div class="text-subtitle2 mt-2 opacity-90">
+              Click the button to test dialog + Tailwind
+            </div>
           </q-card-section>
 
           <q-card-section class="p-8">
@@ -315,9 +333,7 @@ const dialog = ref(false);
 
           <!-- Tailwind spacing with Quasar components -->
           <q-card-section class="space-y-4">
-            <p class="text-gray-700">
-              This dialog uses:
-            </p>
+            <p class="text-gray-700">This dialog uses:</p>
             <ul class="list-disc list-inside space-y-1 text-gray-600">
               <li>Quasar dialog component</li>
               <li>Tailwind gradient background</li>
@@ -326,13 +342,7 @@ const dialog = ref(false);
               <li>Quasar close button</li>
             </ul>
 
-            <q-input
-              v-model="name"
-              filled
-              label="Name"
-              hint="Type something"
-              class="mt-4"
-            />
+            <q-input v-model="name" filled label="Name" hint="Type something" class="mt-4" />
           </q-card-section>
 
           <q-card-actions align="right" class="px-6 pb-4">
@@ -351,4 +361,3 @@ const dialog = ref(false);
   Using only Quasar components + Tailwind utilities
 */
 </style>
-

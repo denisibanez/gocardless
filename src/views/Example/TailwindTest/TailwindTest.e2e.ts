@@ -11,4 +11,3 @@ test.describe('TailwindTest', () => {
     await expect(page.locator('.bg-gradient-to-br')).toBeVisible()
   })
 })
-

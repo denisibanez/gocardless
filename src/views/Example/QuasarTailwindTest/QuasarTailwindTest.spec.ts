@@ -7,8 +7,8 @@ describe('QuasarTailwindTest', () => {
   it('renders page title', () => {
     const wrapper = mount(QuasarTailwindTest, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Quasar + Tailwind')
   })
@@ -16,10 +16,9 @@ describe('QuasarTailwindTest', () => {
   it('renders compatibility test content', () => {
     const wrapper = mount(QuasarTailwindTest, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Compatibility Test')
   })
 })
-

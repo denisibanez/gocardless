@@ -30,4 +30,3 @@ test.describe('QuasarPluginsExample', () => {
     await expect(page.getByRole('button', { name: /Delete Item/i })).toBeVisible()
   })
 })
-

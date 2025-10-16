@@ -12,4 +12,3 @@ test.describe('AboutView', () => {
     await expect(page).toHaveURL(/.*about/)
   })
 })
-

@@ -15,4 +15,3 @@ describe('IconEcosystem', () => {
     expect(svg.attributes('height')).toBe('20')
   })
 })
-

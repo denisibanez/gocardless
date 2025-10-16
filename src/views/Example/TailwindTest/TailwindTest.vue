@@ -1,9 +1,7 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-8">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl font-bold text-white mb-8 text-center">
-        🎨 Tailwind CSS Test Page
-      </h1>
+      <h1 class="text-4xl font-bold text-white mb-8 text-center">🎨 Tailwind CSS Test Page</h1>
 
       <!-- Card Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -54,7 +52,9 @@
           <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
             Warning
           </button>
-          <button class="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-2 px-4 rounded">
+          <button
+            class="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-2 px-4 rounded"
+          >
             Outline
           </button>
         </div>
@@ -86,7 +86,7 @@
 
       <!-- Flex Examples -->
       <div class="bg-black rounded-lg shadow-lg p-8">
-        <h2 class="text-2xl font-bold mb-6 ">Flexbox</h2>
+        <h2 class="text-2xl font-bold mb-6">Flexbox</h2>
 
         <div class="flex items-center justify-between mb-4 p-4 bg-gray-100 rounded">
           <span class="font-semibold text-black">Space Between</span>
@@ -113,4 +113,3 @@
 <style scoped>
 /* Tailwind classes handle all styling - no custom CSS needed! */
 </style>
-

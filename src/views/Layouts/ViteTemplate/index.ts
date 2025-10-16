@@ -1,2 +1,1 @@
-export { default } from './ViteTemplate.vue';
-
+export { default } from './ViteTemplate.vue'

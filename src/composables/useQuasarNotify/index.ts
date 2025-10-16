@@ -1,2 +1,1 @@
-export { useQuasarNotify } from './useQuasarNotify';
-
+export { useQuasarNotify } from './useQuasarNotify'

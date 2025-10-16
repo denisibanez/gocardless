@@ -7,7 +7,7 @@ Complete project documentation.
 ### Architecture
 - [Project Structure](./PROJECT_STRUCTURE.md) - Complete architecture overview
 - [Architecture Decisions](./ARCHITECTURE_DECISIONS.md) - Why we chose flat structure
-- [Colocation Pattern](./COLOCATION_PATTERN.md) - File organization strategy
+ .:- [Colocation Pattern](./COLOCATION_PATTERN.md) - File organization strategy
 
 ### Core Features
 - [Service Layer](./SERVICE_LAYER.md) - API integration guide

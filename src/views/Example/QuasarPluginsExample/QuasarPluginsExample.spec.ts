@@ -7,8 +7,8 @@ describe('QuasarPluginsExample', () => {
   it('renders page title', () => {
     const wrapper = mount(QuasarPluginsExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Quasar Plugins')
   })
@@ -16,8 +16,8 @@ describe('QuasarPluginsExample', () => {
   it('renders notify section', () => {
     const wrapper = mount(QuasarPluginsExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Notify')
   })
@@ -25,8 +25,8 @@ describe('QuasarPluginsExample', () => {
   it('renders dialog section', () => {
     const wrapper = mount(QuasarPluginsExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Dialog')
   })
@@ -34,10 +34,9 @@ describe('QuasarPluginsExample', () => {
   it('renders loading section', () => {
     const wrapper = mount(QuasarPluginsExample, {
       global: {
-        plugins: [Quasar]
-      }
+        plugins: [Quasar],
+      },
     })
     expect(wrapper.text()).toContain('Loading')
   })
 })
-

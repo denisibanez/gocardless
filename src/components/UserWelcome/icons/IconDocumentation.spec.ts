@@ -15,4 +15,3 @@ describe('IconDocumentation', () => {
     expect(svg.attributes('height')).toBe('17')
   })
 })
-

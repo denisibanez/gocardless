@@ -1,32 +1,31 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { BaseService } from './base.service';
-import axiosInstance from '../axios-interceptor';
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { BaseService } from './base.service'
+import axiosInstance from '../axios-interceptor'
 
-vi.mock('../axios-interceptor');
+vi.mock('../axios-interceptor')
 
 // Concrete implementation for testing
 class TestService extends BaseService<{ id: string; name: string }> {
-  protected basePath = '/test';
+  protected basePath = '/test'
 }
 
 describe('BaseService', () => {
-  let service: TestService;
+  let service: TestService
 
   beforeEach(() => {
-    service = new TestService();
-    vi.clearAllMocks();
-  });
+    service = new TestService()
+    vi.clearAllMocks()
+  })
 
   it('creates service instance', () => {
-    expect(service).toBeInstanceOf(BaseService);
-  });
+    expect(service).toBeInstanceOf(BaseService)
+  })
 
   it('has CRUD methods', () => {
-    expect(service.getAll).toBeDefined();
-    expect(service.getById).toBeDefined();
-    expect(service.create).toBeDefined();
-    expect(service.update).toBeDefined();
-    expect(service.delete).toBeDefined();
-  });
-});
-
+    expect(service.getAll).toBeDefined()
+    expect(service.getById).toBeDefined()
+    expect(service.create).toBeDefined()
+    expect(service.update).toBeDefined()
+    expect(service.delete).toBeDefined()
+  })
+})

@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest';
-import { useQuasarLoading } from './useQuasarLoading';
+import { describe, it, expect, vi } from 'vitest'
+import { useQuasarLoading } from './useQuasarLoading'
 
 // Mock Quasar
 vi.mock('quasar', () => ({
@@ -10,25 +10,24 @@ vi.mock('quasar', () => ({
       isActive: false,
     },
   }),
-}));
+}))
 
 describe('useQuasarLoading', () => {
   it('provides loading methods', () => {
-    const { show, hide, withLoading, isActive } = useQuasarLoading();
+    const { show, hide, withLoading, isActive } = useQuasarLoading()
 
-    expect(show).toBeTypeOf('function');
-    expect(hide).toBeTypeOf('function');
-    expect(withLoading).toBeTypeOf('function');
-    expect(isActive).toBeTypeOf('function');
-  });
+    expect(show).toBeTypeOf('function')
+    expect(hide).toBeTypeOf('function')
+    expect(withLoading).toBeTypeOf('function')
+    expect(isActive).toBeTypeOf('function')
+  })
 
   it('withLoading handles promise', async () => {
-    const { withLoading } = useQuasarLoading();
-    const mockPromise = Promise.resolve('test');
+    const { withLoading } = useQuasarLoading()
+    const mockPromise = Promise.resolve('test')
 
-    const result = await withLoading(mockPromise, 'Loading...');
+    const result = await withLoading(mockPromise, 'Loading...')
 
-    expect(result).toBe('test');
-  });
-});
-
+    expect(result).toBe('test')
+  })
+})

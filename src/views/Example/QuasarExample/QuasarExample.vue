@@ -24,12 +24,6 @@ const rows = [
   { name: 'Vue 3', description: 'Progressive JavaScript Framework' },
   { name: 'Vite', description: 'Next Generation Frontend Tooling' },
 ]
-
-// Notification
-const showNotification = () => {
-  // Using Quasar's Notify plugin would go here
-  console.log('Notification would show here')
-}
 </script>
 
 <template>

@@ -7,9 +7,6 @@ import { Quasar, Notify, Dialog, Loading, LoadingBar, BottomSheet } from 'quasar
 // Import icon libraries
 import '@quasar/extras/material-icons/material-icons.css'
 
-// Import Quasar css
-import 'quasar/dist/quasar.css'
-
 import App from './App.vue'
 import router from './router'
 

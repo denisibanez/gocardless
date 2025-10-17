@@ -51,6 +51,12 @@ const router = createRouter({
       name: 'pinia',
       component: () => import('@/views/Example/PiniaExample'),
     },
+
+    {
+      path: '/challenge',
+      name: 'challenge',
+      component: () => import('@/views/Challenge'),
+    }
   ],
 })
 

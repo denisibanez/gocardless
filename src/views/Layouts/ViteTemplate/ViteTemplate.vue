@@ -35,7 +35,6 @@ import HelloWorld from '@/components/HelloWorld'
 <!-- Component Styles - Scoped to this component only -->
 <style scoped lang="scss">
 .vite-template {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;

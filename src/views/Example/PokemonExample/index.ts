@@ -1,1 +1,1 @@
-export { default } from './PokemonExample.vue'
+export { default } from './PokemonExample.vue';

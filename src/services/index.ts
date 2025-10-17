@@ -11,6 +11,7 @@ export { BaseService } from './base'
 
 // Services
 export { default as pokemonService } from './example/pokemon.service'
+export { default as challangeService } from './example/challange.service.ts'
 
 /**
  * HOW TO USE:

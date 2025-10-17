@@ -1,4 +1,7 @@
-/* Tailwind CSS */
+/* Quasar CSS - Import first */
+@import 'quasar/dist/quasar.css';
+
+/* Tailwind CSS - Import after Quasar */
 @import 'tailwindcss/theme';
 @import 'tailwindcss/preflight';
 @import 'tailwindcss/utilities';
